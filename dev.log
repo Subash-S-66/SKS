@@ -1,0 +1,15 @@
+
+> sks-portfolio@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+- Environments: .env
+✓ Ready in 515ms
+
+○ Compiling / ...
+ GET / 200 in 5.6s (next.js: 5.1s, application-code: 531ms)
+ GET /api/services 200 in 1588ms (next.js: 1560ms, application-code: 27ms)
+ GET / 200 in 86ms (next.js: 6ms, application-code: 80ms)
+ GET /api/services 200 in 10ms (next.js: 4ms, application-code: 6ms)
