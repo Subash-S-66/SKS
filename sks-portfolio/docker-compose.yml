@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: sks_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+    container_name: sks_backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/sks-services
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: sks_frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.env.local
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://backend:5000
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
