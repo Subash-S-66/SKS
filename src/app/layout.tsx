@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 import { Chatbot } from "@/components/ui/Chatbot";
+import { Header } from "@/components/layout/Header";
 
 export default function RootLayout({
   children,
@@ -29,7 +30,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-brand-purple/30">{children}<Chatbot /></body>
+      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-brand-purple/30">
+        <Header />
+        {children}
+        <Chatbot />
+      </body>
     </html>
   );
 }
