@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "sks-portfolio/frontend/package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "sks-portfolio/backend/package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/_/backend/(.*)",
+      "dest": "sks-portfolio/backend/src/server.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "sks-portfolio/frontend"
+    }
+  ]
+}
