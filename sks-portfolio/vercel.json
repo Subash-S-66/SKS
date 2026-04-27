@@ -13,18 +13,11 @@
   "routes": [
     {
       "src": "/_/backend/(.*)",
-      "dest": "backend/index.js"
+      "dest": "backend/src/server.ts"
     },
     {
       "src": "/(.*)",
-      "dest": "frontend/index.js"
+      "dest": "frontend"
     }
-  ],
-  "env": {
-    "MONGODB_URI": "@mongodb_uri",
-    "JWT_SECRET": "@jwt_secret",
-    "EMAIL_USER": "@email_user",
-    "EMAIL_PASSWORD": "@email_password",
-    "NEXT_PUBLIC_API_URL": "@next_public_api_url"
-  }
+  ]
 }
